@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan Barang</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="index.html">Generate Link</a>
+            <a href="output.php">Transaction History</a>
+            <a href="policy.html">Policy</a>
+            <a href="logout.html">Logout</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="form-box">
+            <h1>Generate Link Pemesanan</h1>
+            <form action="output.php" method="POST" id="product-order-form" enctype="multipart/form-data">
+                <div class="form-column" id="left-column">
+                    <div id="image-upload-field">
+                        <label>Gambar produk:</label>
+                        <div id="image-upload-placeholder">
+                            <span>Upload Disini</span>
+                        </div>
+                        <input type="file" id="product_image" name="product_image" accept="image/*" required>
+                        <label for="product_image" class="upload-button">Choose File</label>
+                    </div>
+                </div>
+
+                <div class="form-column" id="right-column">
+                    <div id="title-field">
+                        <label for="title">Title Here:</label>
+                        <input type="text" id="title" name="title" required>
+                    </div>
+
+                    <div id="description-field">
+                        <label for="description">Deskripsi:</label>
+                        <textarea id="description" name="description" rows="4" required></textarea>
+                    </div>
+
+                    <div id="account-number-field">
+                        <label for="account_number">Account Number:</label>
+                        <input type="text" id="account_number" name="account_number" required>
+                    </div>
+                    
+                    <div id="bank-field">
+                        <label for="bank">Bank:</label>
+                        <select id="bank" name="bank" required>
+                            <option value="" disabled selected>Pilih Bank</option>
+                            <option value="Seabank">Seabank</option>
+                            <option value="BCA">BCA</option>
+                            <option value="Mandiri">Mandiri</option>
+                            <option value="BNI">BNI</option>
+                        </select>
+                    </div>
+
+                    <div id="account-holder-field">
+                        <label for="account_holder">Pemegang Akun:</label>
+                        <input type="text" id="account_holder" name="account_holder" placeholder="Name Here" required>
+                    </div>
+
+                    <div id="transaction-count-field">
+                        <label for="transaction_count">Jumlah Transaksi:</label>
+                        <input type="number" id="transaction_count" name="transaction_count" value="1" min="1" required>
+                        <small>Bisa lebih dari satu     </small>
+                    </div>
+                    
+                    <div id="notification-checkbox-field">
+                        <label>Notifikasi:</label>
+                        <div class="checkbox-group">
+                            <input type="checkbox" id="send_mobile" name="notification_type[]" value="mobile">
+                            <label for="send_mobile">Kirim ke Nomor</label>
+                            <input type="checkbox" id="send_email" name="notification_type[]" value="email">
+                            <label for="send_email">Kirim ke Email</label>
+                        </div>
+                    </div>
+
+                    <div id="mobile-numbers-field">
+                        <label for="mobile_numbers">Kirim ke nomor:</label>
+                        <input type="text" id="mobile_numbers" name="mobile_numbers" placeholder="08..., 08...">
+                    </div>
+                    
+                    <div id="emails-field">
+                        <label for="emails">Kirim ke Email:</label>
+                        <input type="email" id="emails" name="emails" placeholder="user1@mail.com, user2@mail.com">
+                    </div>
+
+                    <div id="submit-field">
+                        <button type="submit" class="submit-btn">Buat Link</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script>
+        const fileInput = document.getElementById('product_image');
+        const previewContainer = document.getElementById('image-upload-placeholder');
+        const initialText = previewContainer.innerHTML;
+
+        fileInput.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    previewContainer.innerHTML = '';
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    previewContainer.appendChild(img);
+                }
+                reader.readAsDataURL(file);
+            } else {
+                previewContainer.innerHTML = initialText;
+            }
+        });
+    </script>
+</body>
+</html>
