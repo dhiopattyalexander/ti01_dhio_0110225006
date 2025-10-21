@@ -1,0 +1,37 @@
+* {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    line-height: 1.5;
+}
+
+header{
+    background-color: aqua;
+}
+
+nav{
+    background-color: beige;
+    padding: 3px;
+}
+
+nav ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav a{
+    text-decoration: none;
+    color: aquamarine;
+    font-weight: bold;
+}
+
+nav a:hover {
+    text-decoration: none;
+    color: blue;
+}
