@@ -4,18 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Website Sederhana</title>
     <link rel="stylesheet" href="assets/css/style.css">
-
 </head>
 
 <body>
+    
     <header>
-        <h1> header</h1>
-        <p>belajar dah tuh ama jarvis</p>
+        <h2>Belajarlah</h2>
+        
     </header>
 
-    <!-- navigasi -->
     <nav>
         <ul>
             <li><a href="#">Home</a></li>
@@ -25,35 +24,47 @@
         </ul>
     </nav>
 
-    <!-- Konten Utama -->
-    <main class="container">
-        <article>
-        <section>
-            <h3> bagian 1</h3>
-            <p>bagian pertama dari artikel</p>
-        </section>
+    <div class="container">
+        
+        <main>
+            <article>
+                <section>
+                    <h3>Apa Itu Jaringan Internet?</h3>
+                    <p>Internet (Interconnected Network) adalah jaringan komputer global yang menghubungkan miliaran perangkat di seluruh dunia.
+                     Ini memungkinkan siapa saja untuk berbagi informasi dan berkomunikasi dari mana saja, kapan saja, menggunakan berbagai jenis media.</p>
+                </section>
+                
+                <section>
+                    <h3>Cara Kerja Internet (TCP/IP)</h3>
+                    <p>Internet bekerja menggunakan protokol standar yang disebut TCP/IP (Transmission Control Protocol/Internet Protocol).
+                     Data yang Anda kirim dipecah menjadi paket-paket kecil, dikirim melalui berbagai rute (routing), dan disusun kembali dengan benar saat tiba di tujuan.</p>
+                </section>
+                
+                <section>
+                    <h3>Alamat IP dan DNS</h3>
+                    <p>Setiap perangkat di internet memiliki alamat unik bernama 'Alamat IP' (contoh: 172.217.194.102).
+                     Karena angka sulit diingat, DNS (Domain Name System) bertugas seperti buku telepon,
+                     menerjemahkan nama domain yang mudah diingat (seperti google.com) menjadi Alamat IP tersebut.</p>
+                </section>
+            </article>
+        </main>
 
-        <section>
-            <h3> bagian 2</h3>
-            <p>bagian kedua dari artikel</p>
-        </section>
-
-        <section>
-            <h3> bagian 3</h3>
-            <p>bagian ketiga dari artikel</p>
-        </section>
         <aside>
-            <h3>Galeri foto</h3>
-            <img src="#" alt="foto 1">
-            <img src="#" alt="foto 2">
-            <img src="#" alt="foto 3">
+            <h3>Galeri Foto</h3>
+            <div class="galeri-foto">
+                <img src="image/img1.jpg" alt="foto 1">
+                <img src="image/img2.jpg" alt="foto 2">
+                <img src="image/img3.jpg" alt="foto 3">
+               
+                
+            </div>
         </aside>
-        <!-- footer -->
-         <footer>
-            <p>@2025 alek</p>   
-         </footer>
-        </article>
-    </main>
-</body>
 
+    </div>
+
+    <footer>
+        <p>@2025 alek</p>
+    </footer>
+
+</body>
 </html>
