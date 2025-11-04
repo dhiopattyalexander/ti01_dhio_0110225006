@@ -41,7 +41,7 @@ body {
 }
 
 .header-brand {
-    background-image: image-s;
+    background-color: #ffab91;
     flex-basis: 25%;
     height: 80px;
 }
