@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Booking Service</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Booking Service</h2>
+        
+        <form action="#" method="post" class="service-form">
+            
+            <label for="jenis-kendaraan">Jenis Kendaraan</label>
+            <select id="jenis-kendaraan" name="jenis-kendaraan">
+                <option value="minibus">Minibus</option>
+                <option value="sedan">Sedan</option>
+                <option value="suv">SUV</option>
+                <option value="truck">Truck</option>
+            </select>
+
+            <label for="nama-pemesan">Nama Pemesan</label>
+            <input type="text" id="nama-pemesan" name="nama-pemesan">
+
+            <label>Kategori Peminjam</label>
+            <div class="radio-group">
+                <input type="radio" id="pribadi" name="kategori" value="pribadi" checked>
+                <label for="pribadi">Pribadi</label>
+                <input type="radio" id="perusahaan" name="kategori" value="perusahaan">
+                <label for="perusahaan">Perusahaan/Organisasi</label>
+            </div>
+
+            <label for="deskripsi">Deskripsi Kebutuhan</label>
+            <textarea id="deskripsi" name="deskripsi" rows="4"></textarea>
+
+            <label for="waktu-service">Tanggal Service</label>
+            <input type="date" id="waktu-service" name="waktu-service">
+
+            <label for="request-montir">Request Montir</label>
+            <input type="text" id="request-montir" name="request-montir">
+
+            <label for="telpon">Telpon/HP</label>
+            <input type="tel" id="telpon" name="telpon">
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+
+            <div class="button-group">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
