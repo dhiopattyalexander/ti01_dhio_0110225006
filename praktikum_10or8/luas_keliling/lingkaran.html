@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menghitung keliling dan luas lingkaran</title>
+</head>
+<body>
+    <h2>Menghitung Keliling dan Luas Lingkaran</h2>
+    <span id="phi">Nilai Phi = 3.14</span>
+    <br>
+    <label for="radius">Masukkan Jari-Jari Lingkaran (cm):</label>
+    <input type="number" id="radius" min="0" step="0.01" placeholder="contoh: 12">
+    <button id="hitung">Hitung</button>
+    <br>
+    <span id="luas"></span>
+    <br>
+    <span id="keliling"></span>
+
+    <script>
+        const phi = 3.14;
+        document.getElementById("phi").innerHTML = "Nilai Phi = " + phi + " cm";
+
+        const radiusInput = document.getElementById("radius");
+        const btnHitung = document.getElementById("hitung");
+        const elLuas = document.getElementById("luas");
+        const elKeliling = document.getElementById("keliling");
+
+        function hitung() {
+            const r = parseFloat(radiusInput.value);
+            if (isNaN(r) || r <= 0) {
+                elLuas.textContent = "Masukkan jari-jari yang valid (> 0).";
+                elKeliling.textContent = "";
+                return;
+            }
+            const luas = phi * r * r;
+            const keliling = 2 * phi * r;
+            elLuas.innerHTML = "Luas Lingkaran = " + luas.toFixed(2) + " cm²";
+            elKeliling.innerHTML = "Keliling Lingkaran = " + keliling.toFixed(2) + " cm";
+        }
+
+        
+        btnHitung.addEventListener("click", hitung);
+        radiusInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter") {
+                e.preventDefault();
+                hitung();
+            }
+        });
+
+    </script>
+
+    
+</body>
+</html>
