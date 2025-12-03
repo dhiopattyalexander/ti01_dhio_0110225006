@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Kurs Rupiah 2025</title>
+    <script>
+        function hitungKurs() {
+            let nilai = parseFloat(document.getElementById("nilai").value);
+            let valas = document.getElementById("valas").value;
+            let hasil = 0;
+
+            // Data Kurs Updated 2025
+            if (valas == "usd") hasil = nilai * 16616;
+            else if (valas == "sgd") hasil = nilai * 12821;
+            else if (valas == "myr") hasil = nilai * 4023;
+            else if (valas == "jpy") hasil = nilai * 106;
+            else if (valas == "eur") hasil = nilai * 19329;
+            else if (valas == "sar") hasil = nilai * 4426;
+
+            // Format ke Rupiah
+            document.getElementById("rupiah").value = "Rp " + new Intl.NumberFormat("id-ID").format(hasil);
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>Kurs Rupiah - Mata Uang Asing</legend>
+        <table border="1">
+            <tr>
+                <td>Masukan Nilai</td>
+                <td>Valas</td>
+                <td>Nilai Rupiah</td>
+            </tr>
+            <tr>
+                <td><input type="number" id="nilai" onchange="hitungKurs()"></td>
+                <td>
+                    <select id="valas" onchange="hitungKurs()">
+                        <option value="usd">Dollar US</option>
+                        <option value="sgd">Dollar Singapore</option>
+                        <option value="myr">Ringgit Malaysia</option>
+                        <option value="jpy">Yen Jepang</option>
+                        <option value="eur">Euro</option>
+                        <option value="sar">Riyal Arab Saudi</option>
+                    </select>
+                </td>
+                <td><input type="text" id="rupiah" readonly></td>
+            </tr>
+        </table>
+    </fieldset>
+</body>
+</html>

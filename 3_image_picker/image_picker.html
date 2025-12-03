@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Picker - Waifu Edition</title>
+    <script>
+        function pickImage() {
+            let imgPath = document.getElementById("imgSelect").value;
+            
+            if (imgPath === "") {
+                document.getElementById("preview").src = "";
+                document.getElementById("preview").style.display = "none";
+                return;
+            }
+
+            let preview = document.getElementById("preview");
+            preview.src = imgPath;
+            preview.style.display = "block";
+
+            let fileName = imgPath.split('/')[1]; 
+
+            alert("Ini gambar " + fileName);
+        }
+    </script>
+</head>
+<body>
+    <h2>Image Picker</h2>
+    <form>
+        <select id="imgSelect" onchange="pickImage()">
+            <option value="">-- Pilih Karakter --</option>
+            <option value="img/iuno.png">Iuno</option>
+            <option value="img/sk.png">SK</option>
+            <option value="img/carlotta.png">Carlotta</option>
+            <option value="img/jinhsi.png">Jinhsi</option>
+            <option value="img/phoebe.jpg">Phoebe</option>
+        </select>
+    </form>
+    <br>
+    
+    <img id="preview" src="" alt="Preview Gambar" style="max-width: 300px; border: 1px solid #ccc; display: none; padding: 5px;">
+
+</body>
+</html>

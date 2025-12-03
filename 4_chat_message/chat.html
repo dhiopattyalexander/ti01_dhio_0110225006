@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Message</title>
+    <style>
+        body { height: 1500px; } /* Simulasi halaman panjang untuk scroll */
+        .chat-container {
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            width: 300px;
+            border: 1px solid #ccc;
+            background-color: white;
+            box-shadow: -2px -2px 5px rgba(0,0,0,0.2);
+        }
+        .chat-header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+        .chat-body {
+            height: 200px;
+            overflow-y: auto;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .chat-input {
+            padding: 10px;
+            display: flex;
+        }
+        .chat-input input { width: 75%; }
+    </style>
+</head>
+<body>
+    <h1>cek bagian bawah kanan bawah weh</h1>
+
+    <div class="chat-container">
+        <div class="chat-header">Chatbox</div>
+        <div id="chatDisplay" class="chat-body"></div>
+        <div class="chat-input">
+            <input type="text" id="pesan" placeholder="Tulis pesan...">
+            <button onclick="kirimPesan()">Kirim</button>
+        </div>
+    </div>
+
+    <script>
+        function kirimPesan() {
+            let isiPesan = document.getElementById("pesan").value;
+            if (isiPesan !== "") {
+                document.getElementById("chatDisplay").innerHTML += "<p>You: " + isiPesan + "</p>";
+                document.getElementById("pesan").value = ""; 
+            }
+        }
+    </script>
+</body>
+</html>

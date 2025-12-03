@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ubah Warna Background</title>
+    <script>
+        function ubahWarna() {
+            let warnas = ["beige", "cyan", "yellow", "pink", "green", "blue", 
+                          "red", "azure", "gold", "gray", "purple"];
+            let acak = Math.floor(Math.random() * warnas.length);
+            document.getElementById("areaUtama").style.backgroundColor = warnas[acak];
+        }
+    </script>
+</head>
+<body id="areaUtama">
+    <form>
+        <input type="button" value="Ubah Warna" onclick="ubahWarna()">
+    </form>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation</title>
+    <style>
+        .error { color: red; margin-left: 10px; font-size: 0.9em; }
+        .result { margin-top: 20px; border: 1px solid black; padding: 10px; display: none; }
+    </style>
+    <script>
+        function validateForm(event) {
+            event.preventDefault();
+            
+            // Reset Error
+            document.querySelectorAll('.error').forEach(e => e.innerHTML = "");
+            document.getElementById("result").style.display = "none";
+
+            // Ambil Value
+            let nama = document.getElementById("nama").value;
+            let email = document.getElementById("email").value;
+            let jam = document.getElementById("jam").value;
+            let tujuan = document.getElementById("tujuan").value;
+            let tiket = document.getElementById("tiket").value;
+
+            let isValid = true;
+
+            if (nama == "" || nama.length > 30) {
+                document.getElementById("errNama").innerHTML = "Nama wajib diisi & maks 30 karakter.";
+                isValid = false;
+            }
+
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email == "" || !emailPattern.test(email)) {
+                document.getElementById("errEmail").innerHTML = "Email tidak valid.";
+                isValid = false;
+            }
+
+            let jamPattern = /^([0-1]?[0-9]|2[0-3])\.[0-5][0-9]$/;
+            if (jam == "" || !jamPattern.test(jam)) {
+                document.getElementById("errJam").innerHTML = "Format jam harus 00.00 - 23.59.";
+                isValid = false;
+            }
+
+            if (tujuan == "") {
+                document.getElementById("errTujuan").innerHTML = "Tujuan wajib diisi.";
+                isValid = false;
+            }
+
+            if (tiket == "" || tiket < 1 || tiket > 10) {
+                document.getElementById("errTiket").innerHTML = "Tiket harus bilangan bulat 1-10.";
+                isValid = false;
+            }
+
+            // Jika Valid, Tampilkan Hasil
+            if (isValid) {
+                let resultDiv = document.getElementById("result");
+                resultDiv.innerHTML = `<h3>Data Valid:</h3>
+                                       Nama: ${nama} <br>
+                                       Email: ${email} <br>
+                                       Jam: ${jam} <br>
+                                       Tujuan: ${tujuan} <br>
+                                       Tiket: ${tiket}`;
+                resultDiv.style.display = "block";
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Form Tiket Pesawat</h2>
+    <form onsubmit="validateForm(event)">
+        <p>
+            Nama Pelanggan: <input type="text" id="nama">
+            <span id="errNama" class="error"></span>
+        </p>
+        <p>
+            Email: <input type="text" id="email">
+            <span id="errEmail" class="error"></span>
+        </p>
+        <p>
+            Jam Keberangkatan (contoh: 12.30): <input type="text" id="jam">
+            <span id="errJam" class="error"></span>
+        </p>
+        <p>
+            Tujuan Keberangkatan: <input type="text" id="tujuan">
+            <span id="errTujuan" class="error"></span>
+        </p>
+        <p>
+            Jumlah Tiket: <input type="number" id="tiket">
+            <span id="errTiket" class="error"></span>
+        </p>
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="result" class="result"></div>
+</body>
+</html>

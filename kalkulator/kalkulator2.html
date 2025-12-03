@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Kalkulator Sederhana V2</title>
+    <script>
+        function hitung() {
+            let b1 = parseFloat(document.getElementById("bil1").value);
+            let b2 = parseFloat(document.getElementById("bil2").value);
+            let op = document.getElementById("operasi").value;
+            let hasil = 0;
+
+            if (isNaN(b1) || isNaN(b2)) {
+                alert("Harap masukkan angka yang valid!");
+                return;
+            }
+
+            switch (op) {
+                case "+": hasil = b1 + b2; break;
+                case "-": hasil = b1 - b2; break;
+                case "*": hasil = b1 * b2; break;
+                case "/": hasil = b1 / b2; break;
+                default: alert("Pilih operasi dulu"); return;
+            }
+
+            document.getElementById("hasil").value = hasil;
+        }
+    </script>
+</head>
+<body>
+    <h2>Kalkulator Sederhana</h2>
+    <form>
+        Bilangan 1: <input type="number" id="bil1"> <br><br>
+        Bilangan 2: <input type="number" id="bil2"> <br><br>
+        
+        Pilih Operasi Aritmatika:
+        <select id="operasi">
+            <option value="+">Tambah (+)</option>
+            <option value="-">Kurang (-)</option>
+            <option value="*">Kali (x)</option>
+            <option value="/">Bagi (/)</option>
+        </select>
+        <br><br>
+
+        <input type="button" value="Hitung" onclick="hitung()">
+        <br><br>
+        
+        Hasil: <input type="text" id="hasil" readonly>
+    </form>
+</body>
+</html>
